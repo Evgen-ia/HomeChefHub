@@ -1,7 +1,6 @@
-const db = require("./db/index.js")
+const db = require("./index.js");
 
-
-db.query("CREATE TABLE restaurants(\
+const createSchemaQuery = "CREATE TABLE restaurants(\
   id BIGSERIAL NOT NULL PRIMARY KEY,\
   \"name\" VARCHAR(50) NOT NULL,\
   \"location\" VARCHAR(50) NOT NULL,\
@@ -13,6 +12,19 @@ CREATE TABLE reviews(\
     name VARCHAR (50) NOT NULL,\
     review TEXT NOT NULL,\
     rating INT check(rating >=1 and ratif <= 5)\
-  );"
+  );";
 
-);
+async function createSchema() {
+  try {
+    await db.query(createSchemaQuery);
+    console.log("Database schema created successfully.");
+  } catch (error) {
+    console.error("Error creating database schema:", error);
+  } finally {
+    // Close the database connection
+    db.end();
+  }
+}
+
+// Call the function to create the schema
+createSchema();
