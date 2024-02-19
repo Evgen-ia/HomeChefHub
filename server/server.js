@@ -39,7 +39,7 @@ try{
     );"
 
   );
-}catch (err) { console.log(err); 
+}catch (err) { console.log(err); }
 
 // get the list of restaurants
 app.get("/api/v1/restaurants", async (req, res) => {
