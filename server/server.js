@@ -20,7 +20,8 @@ app.use(cors());
 app.use(express.json());
 
 const loggerMiddleware = (req, res, next) => {
-    console.log('new connection: ',`[${new Date().toISOString()}] ${req.method} ${req.url}`, req, res);
+    const { method, url, headers, params, query, body } = req;
+    console.log('new connection: ',`[${new Date().toISOString()}] ${req.method} ${req.url}, ${url}, ${headers}, ${params}, ${query}, ${body}`);
     next();
 };
 app.use(loggerMiddleware);
