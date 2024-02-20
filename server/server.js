@@ -16,6 +16,27 @@ const cors = require("cors")
 const app = express();
 
 
+const createSchemaQuery = "CREATE TABLE restaurants-new(\
+  id BIGSERIAL NOT NULL PRIMARY KEY,\
+  \"name\" VARCHAR(50) NOT NULL,\
+  \"location\" VARCHAR(50) NOT NULL,\
+  price_range INT NOT NULL check(price_range >= 1 and price_range <= 5)\
+  );";
+
+async function createExtra() {
+  try {
+    await db.query(createSchemaQuery);
+    console.log("Database Extra created successfully.");
+  } catch (error) {
+    console.error("Error creating database extra:", error);
+  } finally {
+    // db.end();
+  }
+}
+
+createExtra();
+
+
 app.use(cors());
 app.use(express.json());
 
@@ -34,8 +55,9 @@ app.get("/api/v1/restaurants", async (req, res) => {
         // const results = await db.query("SELECT * from restaurants");
         // console.log(results);
         // "SELECT * FROM restaurants left join (select restaurant_id, COUNT(*) TRUNC(AVG(rating),1) as avarage_rating from reviews group by restaurant_id) reviews on restaurants.id = reviews.restaurant_id;"
-        const RestRatingData = await db.query("SELECT * FROM restaurants\
-        LEFT JOIN (\
+        const RestRatingData = await db.query(
+          "SELECT * FROM restaurants\
+            LEFT JOIN (\
             SELECT restaurant_id, COUNT(*), TRUNC(AVG(rating), 1) AS average_rating\
             FROM reviews\
             GROUP BY restaurant_id\

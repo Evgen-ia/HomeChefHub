@@ -21,10 +21,8 @@ async function createSchema() {
   } catch (error) {
     console.error("Error creating database schema:", error);
   } finally {
-    // Close the database connection
     // db.end();
   }
 }
 
-// Call the function to create the schema
 createSchema();
