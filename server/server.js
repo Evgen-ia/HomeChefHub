@@ -151,7 +151,7 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
 });
 
 
-const port = process.env.PORT || 0.0.0.0; 
+const port = process.env.PORT || 3005; 
 app.listen(port, () => {
     console.log(`up and listening on ${port}`);
 });
