@@ -4,6 +4,8 @@ const db = require("./db/index.js");
 // const morgan = require("morgan");
 // const { query } = require("express");
 
+console.log("i'm here");
+
 const cors = require("cors")
 
 // app.use(morgan("dev"));

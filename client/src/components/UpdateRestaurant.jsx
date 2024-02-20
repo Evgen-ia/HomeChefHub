@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import RestaurantFinder from "../apis/RestaurantFinder";
 
+console.log("бля");
+
 const UpdateRestaurant = (props) => {
   const { id } = useParams();
   let history = useNavigate();
