@@ -4,7 +4,7 @@ const db = require("./db/index.js");
 // const morgan = require("morgan");
 // const { query } = require("express");
 
-console.log("i'm here");
+console.log("i'm here outside");
 
 const cors = require("cors")
 
@@ -20,14 +20,14 @@ app.use(cors());
 app.use(express.json());
 
 const loggerMiddleware = (req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    console.log('new connection: ',`[${new Date().toISOString()}] ${req.method} ${req.url}`, req, res);
     next();
 };
 app.use(loggerMiddleware);
 
 // get the list of restaurants
 app.get("/api/v1/restaurants", async (req, res) => {
-    console.log("i'm here");
+    console.log("i'm here inside");
     try {
         // const results = await db.query("SELECT * from restaurants");
         // console.log(results);

@@ -13,7 +13,7 @@ const RestaurantList = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await RestaurantFinder.get("/");
+        const response = await RestaurantFinder.get("api/v1/restaurants/");
         console.log(response.data.data);
         setRestaurants(response.data.data.restaurant);            // пофиксить сервер
       } catch (err) {}                                              // жопа
