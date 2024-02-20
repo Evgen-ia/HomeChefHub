@@ -24,7 +24,7 @@ const loggerMiddleware = (req, res, next) => {
 app.use(loggerMiddleware);
 
 // get the list of restaurants
-app.get("/api/v1/restaurants", async (req, res) => {
+app.get("", async (req, res) => {
 
     try {
         // const results = await db.query("SELECT * from restaurants");
@@ -151,7 +151,7 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
 });
 
 
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 0.0.0.0; 
 app.listen(port, () => {
     console.log(`up and listening on ${port}`);
 });
