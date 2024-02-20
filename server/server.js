@@ -16,7 +16,7 @@ const cors = require("cors")
 const app = express();
 
 
-const createSchemaQuery = "CREATE TABLE restaurants-new(\
+const createSchemaQuery = "CREATE TABLE restaurantsnnew(\
   id BIGSERIAL NOT NULL PRIMARY KEY,\
   \"name\" VARCHAR(50) NOT NULL,\
   \"location\" VARCHAR(50) NOT NULL,\
