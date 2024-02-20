@@ -4,7 +4,10 @@ import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 
+console.log("in RestList");
+
 const RestaurantList = (props) => {
+  console.log("in RestList func");
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
   let history = useNavigate();
   useEffect(() => {
