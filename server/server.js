@@ -20,11 +20,12 @@ app.use(cors());
 app.use(express.json());
 
 const loggerMiddleware = (req, res, next) => {
-    const { method, url, headers, params, query, body } = req;
-    console.log('new connection: ',`[${new Date().toISOString()} ${req.method} ${req.url} ${url} ${headers} ${params} ${query} ${body}]`);
-    next();
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} - ${res.statusCode}`);
+  next();
 };
+
 app.use(loggerMiddleware);
+
 
 // get the list of restaurants
 app.get("/api/v1/restaurants", async (req, res) => {
