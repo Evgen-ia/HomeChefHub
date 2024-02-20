@@ -73,7 +73,7 @@ app.get("/api/v1/restaurants", async (req, res) => {
             FROM reviews\
             GROUP BY restaurant_id\
         ) reviews ON restaurants.id = reviews.restaurant_id;");
-        // console.log(RestRatingData);
+        console.log("RestRatingData(.row =restaurant, нужен key для среднего)",RestRatingData);
         res.json({
             status: 'success',
             results: RestRatingData.rows.length,

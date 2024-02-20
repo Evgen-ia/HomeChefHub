@@ -48,9 +48,9 @@ const RestaurantList = (props) => {
     if (!restaurant.count) {
       return <span className="text-warning">0 reviews</span>;
     }
-    return (
-      <>
-        <StarRating rating={restaurant.id} />
+    return (                                                        // aaaaaaaaaa
+      <>                                 
+        <StarRating rating={restaurant.id} />               
         <span className="text-warning ml-1">({restaurant.count})</span>
       </>
     );

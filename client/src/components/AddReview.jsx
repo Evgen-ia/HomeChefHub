@@ -24,7 +24,7 @@ const AddReview = () => {
         rating,
       });
       history("/");
-    //   history(location.pathname);
+      history(location.pathname);
     } catch (err) {}
   };
   return (
