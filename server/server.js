@@ -21,7 +21,7 @@ app.use(express.json());
 
 const loggerMiddleware = (req, res, next) => {
     const { method, url, headers, params, query, body } = req;
-    console.log('new connection: ',`[${new Date().toISOString()} ${req.method} ${req.url}, ${url}, ${headers}, ${params}, ${query}, ${body}]`);
+    console.log('new connection: ',`[${new Date().toISOString()} ${req.method} ${req.url} ${url} ${headers} ${params} ${query} ${body}]`);
     next();
 };
 app.use(loggerMiddleware);
