@@ -37,7 +37,7 @@ CREATE TABLE reviews(\
 async function createExtra() {
   try {
     await db.query(createSchemaQuery);
-    console.log("Database Extra created successfully.");
+    console.log("Tables created successfully.");
   } catch (error) {
     console.error("Error creating database extra:", error);
   } finally {
