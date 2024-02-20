@@ -10,3 +10,7 @@ const connectionString = 'postgres://restaurants_db_bjs4_user:eMiwZQllWGzZLnfBgM
 const pool = new Pool({
   connectionString: connectionString,
 });
+
+module.exports = pool;
+
+
