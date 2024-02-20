@@ -22,7 +22,7 @@ async function createSchema() {
     console.error("Error creating database schema:", error);
   } finally {
     // Close the database connection
-    db.end();
+    // db.end();
   }
 }
 
