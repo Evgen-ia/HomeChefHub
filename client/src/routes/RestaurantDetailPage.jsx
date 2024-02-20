@@ -6,7 +6,6 @@ import StarRating from "../components/StarRating";
 import Reviews from "../components/Reviews";
 import AddReview from "../components/AddReview";
 
-console.log("we are inside restaurantDetailPage");
 
 const RestaurantDetailPage = () => {
   console.log("we are inside restaurantDetailPage func 1");

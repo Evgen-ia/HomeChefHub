@@ -4,7 +4,6 @@ import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 
-console.log("in RestList");
 
 const RestaurantList = (props) => {
   console.log("in RestList func");
@@ -13,7 +12,7 @@ const RestaurantList = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await RestaurantFinder.get("api/v1/restaurants/");
+        const response = await RestaurantFinder.get("/");
         console.log(response.data.data);
         setRestaurants(response.data.data.restaurant);            // пофиксить сервер
       } catch (err) {}                                              // жопа

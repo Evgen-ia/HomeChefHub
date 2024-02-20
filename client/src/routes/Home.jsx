@@ -4,7 +4,6 @@ import AddRestaurant from "../components/AddRestaurant";
 import RestaurantList from "../components/RestaurantList";
 
 const Home = () => {
-  console.log("in Home");
   return (
     <div>
       <Header />
