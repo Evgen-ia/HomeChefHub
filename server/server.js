@@ -4,6 +4,8 @@ const db = require("./db/index.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const authRoutes = require('./auth');
+const authMiddleware = require('./authMiddleware');
 // const morgan = require("morgan");
 // const { query } = require("express");
 
