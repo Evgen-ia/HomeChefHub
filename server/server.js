@@ -7,8 +7,6 @@ const cookieParser = require("cookie-parser");
 // const morgan = require("morgan");
 // const { query } = require("express");
 
-console.log("i'm here outside");
-
 const cors = require("cors")
 
 // app.use(morgan("dev"));
@@ -60,6 +58,8 @@ const loggerMiddleware = (req, res, next) => {
 };
 
 app.use(loggerMiddleware);
+app.use(cookieParser()); 
+app.use('/auth', authRoutes);
 
 
 // get the list of restaurants
@@ -193,29 +193,32 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
 
 app.use(cookieParser());
 
-//dummy db
-const users = [];
+// //dummy db
+// const users = [];
 
-// Register a new user
-app.post("/api/register", async (req, res) => {
-  try {
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+// // Register a new user
+// app.post("/api/register", async (req, res) => {
+//   try {
+//     // Hash the password
+//     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    // Create a new user object
-    const user = { username: req.body.username, password: hashedPassword };
+//     // Create a new user object
+//     const user = { username: req.body.username, password: hashedPassword };
 
-    // Add the user to the database
-    users.push(user);
+//     // Add the user to the database
+//     users.push(user);
 
-    res.status(201).send("User registered successfully.");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
+//     res.status(201).send("User registered successfully.");
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
+app.get('/profile', authMiddleware, (req, res) => {
+  // Access the authenticated user's information via req.user
+  res.json({ message: `Welcome, ${req.user.username}!` });
 });
-
-
 
 const port = process.env.PORT || 3005;
 app.listen(port, () => {
