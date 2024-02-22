@@ -60,7 +60,7 @@ const loggerMiddleware = (req, res, next) => {
 
 app.use(loggerMiddleware);
 app.use(cookieParser()); 
-app.use('/auth', authRoutes);
+app.use('/api/v1/restaurants/auth', authRoutes);
 
 
 // get the list of restaurants
@@ -192,9 +192,8 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
 });
 
 
-app.use(cookieParser());
 
-app.get('/profile', authMiddleware, (req, res) => {
+app.get('/auth/profile', authMiddleware, (req, res) => {
   // Access the authenticated user's information via req.user
   res.json({ message: `Welcome, ${req.user.username}!` });
 });
