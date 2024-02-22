@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS restaurants(\
   \"location\" VARCHAR(50) NOT NULL,\
   price_range INT NOT NULL check(price_range >= 1 and price_range <= 5)\
 );\
-CREATE TABLE reviews(\
+CREATE TABLE IF NOT EXISTS reviews(\
     id BIGSERIAL NOT NULL PRIMARY KEY,\
     restaurant_id BIGINT NOT NULL REFERENCES restaurants(id),\
     name VARCHAR (50) NOT NULL,\
@@ -194,28 +194,6 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
 
 
 app.use(cookieParser());
-
-// //dummy db
-// const users = [];
-
-// // Register a new user
-// app.post("/api/register", async (req, res) => {
-//   try {
-//     // Hash the password
-//     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
-//     // Create a new user object
-//     const user = { username: req.body.username, password: hashedPassword };
-
-//     // Add the user to the database
-//     users.push(user);
-
-//     res.status(201).send("User registered successfully.");
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Internal Server Error");
-//   }
-// });
 
 app.get('/profile', authMiddleware, (req, res) => {
   // Access the authenticated user's information via req.user
