@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/login', formData);
+      await axios.post('/auth/login', formData);
       // Redirect or show a success message
       history('/profile'); // Redirect to profile page after successful login
     } catch (error) {

@@ -18,7 +18,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/register', formData);
+      await axios.post('auth/register', formData);
       // Redirect to login page after successful registration
       history('/login');
     } catch (error) {
