@@ -1,12 +1,14 @@
-// Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate} from 'react-router-dom';
 
-const Register = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+
+  const history = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,17 +17,18 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/register', formData);
+      await axios.post('/api/login', formData);
       // Redirect or show a success message
+      history('/profile'); // Redirect to profile page after successful login
     } catch (error) {
-      console.error('Error registering:', error);
+      console.error('Error logging in:', error);
       // Handle error
     }
   };
 
   return (
     <div>
-      <h2>Register</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -41,10 +44,10 @@ const Register = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default Login;

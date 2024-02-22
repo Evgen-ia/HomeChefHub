@@ -1,12 +1,15 @@
 // Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +19,8 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post('/api/register', formData);
-      // Redirect or show a success message
+      // Redirect to login page after successful registration
+      history.push('/login');
     } catch (error) {
       console.error('Error registering:', error);
       // Handle error
