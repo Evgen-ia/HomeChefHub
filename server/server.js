@@ -22,8 +22,7 @@ const app = express();
 
 
 const createSchemaQuery = 
-"DROP TABLE IF EXISTS Extra;\
-CREATE TABLE IF NOT EXISTS restaurants(\
+"CREATE TABLE IF NOT EXISTS restaurants(\
   id BIGSERIAL NOT NULL PRIMARY KEY,\
   \"name\" VARCHAR(50) NOT NULL,\
   \"location\" VARCHAR(50) NOT NULL,\
