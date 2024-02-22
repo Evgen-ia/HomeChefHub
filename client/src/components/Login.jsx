@@ -20,7 +20,7 @@ const Login = () => {
     try {
       await RestaurantFinder.post('/auth/login', formData);
       // Redirect or show a success message
-      history('/profile'); // Redirect to profile page after successful login
+      history('/auth/profile'); // Redirect to profile page after successful login
     } catch (error) {
       console.error('Error logging in:', error);
       // Handle error
