@@ -5,6 +5,7 @@ import UpdatePage from "./routes/UpdatePage";
 import RestaurantDetailPage from "./routes/RestaurantDetailPage";
 import { RestaurantsContextProvider } from "./context/RestaurantsContext";
 import Register from "./components/Register";
+import Login from "./components/Login";
 
 const App = () => {
   return (
